@@ -1,3 +1,10 @@
+Here you go — basic but clean versions of `README.md` and `CONTRIBUTING.md` tailored for your **HTML/CSS/JS based NGO open-source project**:
+
+---
+
+### 📘 `README.md`
+
+````markdown
 # 🌱 NGO Open Source Platform
 
 An open-source project to build a community-driven website for NGOs using basic HTML, CSS, and JavaScript. This project is beginner-friendly and open for contributors from all skill levels.
@@ -25,8 +32,9 @@ An open-source project to build a community-driven website for NGOs using basic 
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
- 
-git clone https://github.com/itsmepraksh/ngo-open-source-platform.git
+```bash
+git clone https://github.com/your-username/ngo-open-source-platform.git
+````
 
 ### 2. Open in Browser
 
@@ -57,7 +65,14 @@ This project is licensed under the [MIT License](./LICENSE).
 ---
  
  
- 
+Great idea! Adding a **"Contributors"** section in the `README.md` gives credit and encourages others to participate 🙌
+
+---
+
+### 🧾 Add This to the Bottom of `README.md`
+
+```markdown
+---
 
 ## 👥 Contributors
 
@@ -69,4 +84,21 @@ Thanks to all the amazing people who have contributed to this project! 🌟
 | _Your Name Here_ | _[Link to your GitHub](https://github.com/your-profile)_ |
 
 > 🧩 Want to be listed here? Make your first contribution and add your name above!
- 
+```
+
+---
+
+✅ You can also encourage them in `CONTRIBUTING.md` with:
+
+```markdown
+## 🌟 Get Featured
+
+Once your PR is merged, don’t forget to add your name to the **Contributors** section in `README.md` as a token of your effort!
+```
+
+---
+
+Let me know if you want me to:
+
+* Add this to the full `README.md` and resend the final version
+* Or generate the full `starter files` in one `.zip` package for uploading to GitHub
