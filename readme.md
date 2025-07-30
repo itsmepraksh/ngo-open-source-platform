@@ -66,6 +66,7 @@ Thanks to all the amazing people who have contributed to this project! 🌟
 | Name | GitHub |
 |------|--------|
 | Prakash (Maintainer) | [@your-username](https://github.com/your-username) |
+| Ayush Patil | [@ayushpatil0810](https://github.com/ayushpatil0810) |
 | _Your Name Here_ | _[Link to your GitHub](https://github.com/your-profile)_ |
 
 > 🧩 Want to be listed here? Make your first contribution and add your name above!
