@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Lavanya Foundation</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="assets/logo.png" alt="Lavanya Foundation" class="login-logo">
+                <h2>Admin Panel</h2>
+                <p>Lavanya Foundation</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="login-options">
+                    <a href="#" id="forgot-password-link" class="forgot-password">Forgot Password?</a>
+                </div>
+                <div class="login-info">
+                    <small>Demo credentials: admin / admin123</small>
+                    <br><small>Firebase Auth: admin@lavanyafoundation.org / admin123</small>
+                </div>
+            </form>
+            
+            <!-- Forgot Password Form -->
+            <form id="forgot-password-form" class="login-form hidden">
+                <div class="form-header">
+                    <h3>Reset Password</h3>
+                    <p>Enter your email to receive a password reset link</p>
+                </div>
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="reset-email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                <div class="login-options">
+                    <a href="#" id="back-to-login-link" class="forgot-password">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard hidden">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>Lavanya Foundation Admin</h1>
+                <div id="firebase-status" class="firebase-status">
+                    <span id="status-indicator">🔄 Checking...</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="preview-btn" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i> Preview Site
+                </button>
+                <button id="logout-btn" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </button>
+                    <button class="nav-item" data-section="gallery">
+                        <i class="fas fa-images"></i>
+                        Gallery
+                    </button>
+                    <button class="nav-item" data-section="team">
+                        <i class="fas fa-users"></i>
+                        Team Members
+                    </button>
+                    <button class="nav-item" data-section="stories">
+                        <i class="fas fa-book"></i>
+                        Impact Stories
+                    </button>
+                    <button class="nav-item" data-section="chapters">
+                        <i class="fas fa-map-marked-alt"></i>
+                        City Chapters
+                    </button>
+                    <button class="nav-item" data-section="partners">
+                        <i class="fas fa-handshake"></i>
+                        Partners
+                    </button>
+                    <button class="nav-item" data-section="issues">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Major Issues
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <p>Welcome to the Lavanya Foundation Admin Panel</p>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="gallery-count">0</h3>
+                                <p>Gallery Items</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="team-count">0</h3>
+                                <p>Team Members</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="chapters-count">0</h3>
+                                <p>City Chapters</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="partners-count">0</h3>
+                                <p>Partners</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" onclick="switchSection('gallery')">
+                                <i class="fas fa-plus"></i> Add Gallery Item
+                            </button>
+                            <button class="btn btn-primary" onclick="switchSection('team')">
+                                <i class="fas fa-plus"></i> Add Team Member
+                            </button>
+                            <button class="btn btn-primary" onclick="switchSection('stories')">
+                                <i class="fas fa-plus"></i> Add Story
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery Section -->
+                <section id="gallery-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Gallery</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('gallery')">
+                            <i class="fas fa-plus"></i> Add New Image
+                        </button>
+                    </div>
+                    <div id="gallery-form" class="form-container hidden">
+                        <form id="gallery-item-form">
+                            <input type="hidden" id="gallery-edit-id">
+                            <div class="form-group">
+                                <label for="gallery-title">Title</label>
+                                <input type="text" id="gallery-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gallery-src">Image URL</label>
+                                <input type="url" id="gallery-src" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gallery-category">Category</label>
+                                <select id="gallery-category" required>
+                                    <option value="environment">Environment</option>
+                                    <option value="education">Education</option>
+                                    <option value="community">Community</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('gallery')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="gallery-list" class="items-list"></div>
+                </section>
+
+                <!-- Team Section -->
+                <section id="team-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Team Members</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('team')">
+                            <i class="fas fa-plus"></i> Add New Member
+                        </button>
+                    </div>
+                    <div id="team-form" class="form-container hidden">
+                        <form id="team-member-form">
+                            <input type="hidden" id="team-edit-id">
+                            <div class="form-group">
+                                <label for="team-name">Name</label>
+                                <input type="text" id="team-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="team-role">Role</label>
+                                <input type="text" id="team-role" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="team-image">Image URL</label>
+                                <input type="url" id="team-image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="team-bio">Bio</label>
+                                <textarea id="team-bio" rows="3" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('team')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="team-list" class="items-list"></div>
+                </section>
+
+                <!-- Stories Section -->
+                <section id="stories-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Impact Stories</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('stories')">
+                            <i class="fas fa-plus"></i> Add New Story
+                        </button>
+                    </div>
+                    <div id="stories-form" class="form-container hidden">
+                        <form id="story-form">
+                            <input type="hidden" id="story-edit-id">
+                            <div class="form-group">
+                                <label for="story-title">Title</label>
+                                <input type="text" id="story-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-image">Image URL</label>
+                                <input type="url" id="story-image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-text">Story Text</label>
+                                <textarea id="story-text" rows="4" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('stories')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="stories-list" class="items-list"></div>
+                </section>
+
+                <!-- Chapters Section -->
+                <section id="chapters-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage City Chapters</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('chapters')">
+                            <i class="fas fa-plus"></i> Add New Chapter
+                        </button>
+                    </div>
+                    <div id="chapters-form" class="form-container hidden">
+                        <form id="chapter-form">
+                            <input type="hidden" id="chapter-edit-id">
+                            <div class="form-group">
+                                <label for="chapter-name">Chapter Name</label>
+                                <input type="text" id="chapter-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="chapter-location">Location</label>
+                                <input type="text" id="chapter-location" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="chapter-image">Image URL</label>
+                                <input type="url" id="chapter-image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="chapter-description">Description</label>
+                                <textarea id="chapter-description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="chapter-contact">Contact Email</label>
+                                <input type="email" id="chapter-contact" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('chapters')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="chapters-list" class="items-list"></div>
+                </section>
+
+                <!-- Partners Section -->
+                <section id="partners-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Partners</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('partners')">
+                            <i class="fas fa-plus"></i> Add New Partner
+                        </button>
+                    </div>
+                    <div id="partners-form" class="form-container hidden">
+                        <form id="partner-form">
+                            <input type="hidden" id="partner-edit-id">
+                            <div class="form-group">
+                                <label for="partner-name">Partner Name</label>
+                                <input type="text" id="partner-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="partner-logo">Logo URL</label>
+                                <input type="url" id="partner-logo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="partner-website">Website URL</label>
+                                <input type="url" id="partner-website" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('partners')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="partners-list" class="items-list"></div>
+                </section>
+
+                <!-- Issues Section -->
+                <section id="issues-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Major Issues</h2>
+                        <button class="btn btn-primary" onclick="showAddForm('issues')">
+                            <i class="fas fa-plus"></i> Add New Issue
+                        </button>
+                    </div>
+                    <div id="issues-form" class="form-container hidden">
+                        <form id="issue-form">
+                            <input type="hidden" id="issue-edit-id">
+                            <div class="form-group">
+                                <label for="issue-title">Issue Title</label>
+                                <input type="text" id="issue-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="issue-icon">Font Awesome Icon Class</label>
+                                <input type="text" id="issue-icon" placeholder="e.g., fas fa-leaf" required>
+                                <small>Visit <a href="https://fontawesome.com/icons" target="_blank">FontAwesome</a> for icon classes</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="issue-description">Description</label>
+                                <textarea id="issue-description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" onclick="hideForm('issues')">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="issues-list" class="items-list"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/firebase-config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+    
+    <!-- Firebase Status Checker -->
+    <script>
+        function updateFirebaseStatus() {
+            const statusElement = document.getElementById('status-indicator');
+            if (!statusElement) return;
+            
+            setTimeout(() => {
+                if (window.firebaseManager?.isConnected) {
+                    statusElement.innerHTML = '🔥 Firebase Connected';
+                    statusElement.style.color = '#28a745';
+                } else {
+                    statusElement.innerHTML = '⚠️ Using Local Storage';
+                    statusElement.style.color = '#ffc107';
+                }
+            }, 3000);
+        }
+        
+        // Check status when page loads
+        window.addEventListener('load', updateFirebaseStatus);
+        
+        // Also check when dashboard is shown
+        const originalShowDashboard = window.showDashboard;
+        if (originalShowDashboard) {
+            window.showDashboard = function() {
+                originalShowDashboard();
+                updateFirebaseStatus();
+            };
+        }
+    </script>
+    
+    <style>
+        .firebase-status {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        #status-indicator {
+            font-weight: 500;
+        }
+        
+        .login-options {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .forgot-password {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-header h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .form-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .login-info {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+</body>
+</html>
