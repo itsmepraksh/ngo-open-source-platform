@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Debug Test</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        .loading {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Firebase Debug Test</h1>
+    
+    <div id="firebase-status" class="test-section loading">
+        <h3>Firebase Connection Status</h3>
+        <p id="status-text">Testing Firebase connection...</p>
+    </div>
+    
+    <div id="collections-test" class="test-section">
+        <h3>Collections Test</h3>
+        <p id="collections-text">Testing collections...</p>
+        <button onclick="testAllCollections()">Test All Collections</button>
+    </div>
+    
+    <div id="website-settings" class="test-section">
+        <h3>Website Settings</h3>
+        <p id="settings-text">Loading website settings...</p>
+        <button onclick="testWebsiteSettings()">Test Website Settings</button>
+    </div>
+    
+    <div id="projects-test" class="test-section">
+        <h3>Projects Data</h3>
+        <p id="projects-text">Loading projects...</p>
+        <button onclick="testProjects()">Test Projects</button>
+        <div id="projects-data"></div>
+    </div>
+    
+    <div id="events-test" class="test-section">
+        <h3>Events Data</h3>
+        <p id="events-text">Loading events...</p>
+        <button onclick="testEvents()">Test Events</button>
+        <div id="events-data"></div>
+    </div>
+    
+    <div id="products-test" class="test-section">
+        <h3>Products Data</h3>
+        <p id="products-text">Loading products...</p>
+        <button onclick="testProducts()">Test Products</button>
+        <div id="products-data"></div>
+    </div>
+
+    <div id="manual-test" class="test-section">
+        <h3>Manual Collection Test</h3>
+        <input type="text" id="collection-name" placeholder="Enter collection name" value="projects">
+        <button onclick="testCollection()">Test Collection</button>
+        <div id="manual-test-result"></div>
+    </div>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGVFxCOL6ULr_UdUP6JSMbRkPADc7HyyM",
+            authDomain: "lavanya-foundation-website.firebaseapp.com",
+            projectId: "lavanya-foundation-website",
+            storageBucket: "lavanya-foundation-website.firebasestorage.app",
+            messagingSenderId: "752962971751",
+            appId: "1:752962971751:web:c333e532f0e25f0973ccc2"
+        };
+
+        let db;
+
+        // Initialize Firebase
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            
+            document.getElementById('status-text').textContent = 'Firebase connected successfully!';
+            document.getElementById('firebase-status').className = 'test-section success';
+            
+            // Auto-run tests
+            setTimeout(() => {
+                testAllCollections();
+            }, 1000);
+            
+        } catch (error) {
+            document.getElementById('status-text').textContent = 'Firebase connection failed: ' + error.message;
+            document.getElementById('firebase-status').className = 'test-section error';
+        }
+
+        async function testAllCollections() {
+            console.log('Testing all collections...');
+            
+            const collections = ['website', 'projects', 'events', 'products', 'volunteers', 'donations', 'contact_messages'];
+            
+            for (const collectionName of collections) {
+                await testCollectionByName(collectionName);
+            }
+        }
+
+        async function testCollectionByName(collectionName) {
+            try {
+                console.log(`Testing collection: ${collectionName}`);
+                const snapshot = await db.collection(collectionName).get();
+                const data = [];
+                snapshot.forEach(doc => {
+                    data.push({ id: doc.id, ...doc.data() });
+                });
+                
+                console.log(`${collectionName} collection:`, data);
+                
+                // Update UI based on collection
+                switch(collectionName) {
+                    case 'website':
+                        updateWebsiteSettingsTest(data);
+                        break;
+                    case 'projects':
+                        updateProjectsTest(data);
+                        break;
+                    case 'events':
+                        updateEventsTest(data);
+                        break;
+                    case 'products':
+                        updateProductsTest(data);
+                        break;
+                }
+                
+            } catch (error) {
+                console.error(`Error testing collection ${collectionName}:`, error);
+            }
+        }
+
+        function updateWebsiteSettingsTest(data) {
+            const container = document.getElementById('settings-text');
+            if (data.length > 0) {
+                container.textContent = `Website settings found: ${data.length} documents`;
+                container.parentElement.className = 'test-section success';
+            } else {
+                container.textContent = 'No website settings found';
+                container.parentElement.className = 'test-section warning';
+            }
+        }
+
+        function updateProjectsTest(data) {
+            const container = document.getElementById('projects-text');
+            const dataContainer = document.getElementById('projects-data');
+            
+            if (data.length > 0) {
+                container.textContent = `Found ${data.length} projects`;
+                container.parentElement.className = 'test-section success';
+                dataContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } else {
+                container.textContent = 'No projects found';
+                container.parentElement.className = 'test-section warning';
+                dataContainer.innerHTML = '';
+            }
+        }
+
+        function updateEventsTest(data) {
+            const container = document.getElementById('events-text');
+            const dataContainer = document.getElementById('events-data');
+            
+            if (data.length > 0) {
+                container.textContent = `Found ${data.length} events`;
+                container.parentElement.className = 'test-section success';
+                dataContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } else {
+                container.textContent = 'No events found';
+                container.parentElement.className = 'test-section warning';
+                dataContainer.innerHTML = '';
+            }
+        }
+
+        function updateProductsTest(data) {
+            const container = document.getElementById('products-text');
+            const dataContainer = document.getElementById('products-data');
+            
+            if (data.length > 0) {
+                container.textContent = `Found ${data.length} products`;
+                container.parentElement.className = 'test-section success';
+                dataContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } else {
+                container.textContent = 'No products found';
+                container.parentElement.className = 'test-section warning';
+                dataContainer.innerHTML = '';
+            }
+        }
+
+        async function testWebsiteSettings() {
+            await testCollectionByName('website');
+        }
+
+        async function testProjects() {
+            await testCollectionByName('projects');
+        }
+
+        async function testEvents() {
+            await testCollectionByName('events');
+        }
+
+        async function testProducts() {
+            await testCollectionByName('products');
+        }
+
+        async function testCollection() {
+            const collectionName = document.getElementById('collection-name').value;
+            const resultContainer = document.getElementById('manual-test-result');
+            
+            try {
+                const snapshot = await db.collection(collectionName).get();
+                const data = [];
+                snapshot.forEach(doc => {
+                    data.push({ id: doc.id, ...doc.data() });
+                });
+                
+                resultContainer.innerHTML = `
+                    <h4>Collection: ${collectionName}</h4>
+                    <p>Documents found: ${data.length}</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+                
+            } catch (error) {
+                resultContainer.innerHTML = `
+                    <h4>Error testing collection: ${collectionName}</h4>
+                    <p style="color: red;">${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html> 

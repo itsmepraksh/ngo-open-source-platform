@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Test</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        .loading {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <h1>Firebase Integration Test</h1>
+    
+    <div id="firebase-status" class="test-section loading">
+        <h3>Firebase Connection Status</h3>
+        <p id="status-text">Testing Firebase connection...</p>
+    </div>
+    
+    <div id="website-settings" class="test-section">
+        <h3>Website Settings</h3>
+        <p id="settings-text">Loading website settings...</p>
+    </div>
+    
+    <div id="projects-test" class="test-section">
+        <h3>Projects Data</h3>
+        <p id="projects-text">Loading projects...</p>
+    </div>
+    
+    <div id="events-test" class="test-section">
+        <h3>Events Data</h3>
+        <p id="events-text">Loading events...</p>
+    </div>
+    
+    <div id="products-test" class="test-section">
+        <h3>Products Data</h3>
+        <p id="products-text">Loading products...</p>
+    </div>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGVFxCOL6ULr_UdUP6JSMbRkPADc7HyyM",
+            authDomain: "lavanya-foundation-website.firebaseapp.com",
+            projectId: "lavanya-foundation-website",
+            storageBucket: "lavanya-foundation-website.firebasestorage.app",
+            messagingSenderId: "752962971751",
+            appId: "1:752962971751:web:c333e532f0e25f0973ccc2"
+        };
+
+        // Initialize Firebase
+        try {
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            
+            document.getElementById('status-text').textContent = 'Firebase connected successfully!';
+            document.getElementById('firebase-status').className = 'test-section success';
+            
+            // Test website settings
+            testWebsiteSettings();
+            testProjects();
+            testEvents();
+            testProducts();
+            
+        } catch (error) {
+            document.getElementById('status-text').textContent = 'Firebase connection failed: ' + error.message;
+            document.getElementById('firebase-status').className = 'test-section error';
+        }
+
+        async function testWebsiteSettings() {
+            try {
+                const doc = await db.collection('website').doc('settings').get();
+                if (doc.exists) {
+                    const data = doc.data();
+                    document.getElementById('settings-text').textContent = 'Website settings loaded successfully! Data: ' + JSON.stringify(data, null, 2);
+                    document.getElementById('website-settings').className = 'test-section success';
+                } else {
+                    document.getElementById('settings-text').textContent = 'No website settings found in Firebase. This is normal if no data has been added yet.';
+                    document.getElementById('website-settings').className = 'test-section loading';
+                }
+            } catch (error) {
+                document.getElementById('settings-text').textContent = 'Error loading website settings: ' + error.message;
+                document.getElementById('website-settings').className = 'test-section error';
+            }
+        }
+
+        async function testProjects() {
+            try {
+                const snapshot = await db.collection('projects').get();
+                const projects = [];
+                snapshot.forEach(doc => {
+                    projects.push({ id: doc.id, ...doc.data() });
+                });
+                
+                if (projects.length > 0) {
+                    document.getElementById('projects-text').textContent = `Found ${projects.length} projects: ` + JSON.stringify(projects, null, 2);
+                    document.getElementById('projects-test').className = 'test-section success';
+                } else {
+                    document.getElementById('projects-text').textContent = 'No projects found in Firebase. This is normal if no data has been added yet.';
+                    document.getElementById('projects-test').className = 'test-section loading';
+                }
+            } catch (error) {
+                document.getElementById('projects-text').textContent = 'Error loading projects: ' + error.message;
+                document.getElementById('projects-test').className = 'test-section error';
+            }
+        }
+
+        async function testEvents() {
+            try {
+                const snapshot = await db.collection('events').get();
+                const events = [];
+                snapshot.forEach(doc => {
+                    events.push({ id: doc.id, ...doc.data() });
+                });
+                
+                if (events.length > 0) {
+                    document.getElementById('events-text').textContent = `Found ${events.length} events: ` + JSON.stringify(events, null, 2);
+                    document.getElementById('events-test').className = 'test-section success';
+                } else {
+                    document.getElementById('events-text').textContent = 'No events found in Firebase. This is normal if no data has been added yet.';
+                    document.getElementById('events-test').className = 'test-section loading';
+                }
+            } catch (error) {
+                document.getElementById('events-text').textContent = 'Error loading events: ' + error.message;
+                document.getElementById('events-test').className = 'test-section error';
+            }
+        }
+
+        async function testProducts() {
+            try {
+                const snapshot = await db.collection('products').get();
+                const products = [];
+                snapshot.forEach(doc => {
+                    products.push({ id: doc.id, ...doc.data() });
+                });
+                
+                if (products.length > 0) {
+                    document.getElementById('products-text').textContent = `Found ${products.length} products: ` + JSON.stringify(products, null, 2);
+                    document.getElementById('products-test').className = 'test-section success';
+                } else {
+                    document.getElementById('products-text').textContent = 'No products found in Firebase. This is normal if no data has been added yet.';
+                    document.getElementById('products-test').className = 'test-section loading';
+                }
+            } catch (error) {
+                document.getElementById('products-text').textContent = 'Error loading products: ' + error.message;
+                document.getElementById('products-test').className = 'test-section error';
+            }
+        }
+    </script>
+</body>
+</html> 
