@@ -2,8 +2,23 @@ import "../styles/admin.css";
 
 import AdminRoutes from "../routes/AdminRoutes";
 import Admin_navBar from "../components/Admin_navBar";
+import { useContext } from "react";
+import { adminContext } from "../Wrapper";
 
 const Admin = () => {
+
+
+  const [loginStatus,setLoginStatus] = useContext(adminContext);
+
+  console.log(loginStatus)
+
+  const logout = ()=>{
+    setLoginStatus(false);
+    console.log("Logout clicked");
+    console.log(loginStatus);
+  }
+
+   console.log(loginStatus)
   return (
     <div className="admin-container h-full">
       <div className="sidebar " id="sidebar">
@@ -18,10 +33,10 @@ const Admin = () => {
 
 
       <div className="main-content">
-        <div class="header">
+        <div className="header">
           <h1 id="section-title">Dashboard</h1>
-          <button class="logout-btn" onclick="logout()">
-            <i class="fas fa-sign-out-alt"></i> Logout
+          <button className="logout-btn active:scale-[0.9]" onClick={logout}>
+            <i className="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
         

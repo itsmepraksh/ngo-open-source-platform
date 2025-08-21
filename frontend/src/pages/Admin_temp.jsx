@@ -91,7 +91,7 @@ const Admin_temp = () => {
 
         {/* <!-- Main Content --> */}
         <div className="main-content">
-          {/* <div class="header">
+          {/* <div class="header">  
                 <h1 id="section-title">Dashboard</h1>
                 <button class="logout-btn" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
