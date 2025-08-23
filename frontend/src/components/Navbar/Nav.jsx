@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import "../styles/index.css";
+
+import style from "../Navbar/nav.module.css"
 
 const Nav = () => {
     
   return (
-    <nav className="navbar">
-        <div className="nav-container">
-            <Link href="#home" className="logo" id="logoText">Lavanya Foundation</Link>
-            <ul className="nav-links">
+    <nav className={`${style.navbar}`}>
+        <div className={`${style.nav_container}`}>
+            <Link href="#home" className={`${style.logo}`} id="logoText">Lavanya Foundation</Link>
+            <ul className={`${style.nav_links}`}>
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/projects">Projects</Link></li>
@@ -17,7 +18,7 @@ const Nav = () => {
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link to="/shop">Shop</Link></li>
             </ul>
-            <button className="mobile-menu">
+            <button className={`${style.mobile_menu}`}>
                 <i className="fas fa-bars"></i>
             </button>
         </div>

@@ -1,4 +1,4 @@
- import "../styles/index.css" 
+//  import "../styles/style.css" 
 
 const Donation = () => {
 

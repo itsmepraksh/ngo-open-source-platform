@@ -1,11 +1,12 @@
- import "../styles/index.css" 
+//  import "../styles/index.css" 
 
 const Volunteer = () => {
   return (
     <section id="volunteer" className="section">
         <div className="container">
             <h2 className="section-title">Volunteer With Us</h2>
-            <div className="volunteer-form fade-in">
+            {/*fade-in  */}
+            <div className="volunteer-form ">
                 <h3 className="text-center mb-2rem text-[#2c3e50]">Join Our Movement</h3>
                 <form id="volunteerForm">
                     <div className="volunteer-form-grid">

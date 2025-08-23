@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
-import About from "../layouts/About"; 
+ 
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Navbar/Nav"; 
 import AppRoutes from "../routes/AppRoutes";
-import "../styles/index.css";
+
 const Index = () => {
   return (
     <div>

@@ -1,12 +1,12 @@
-import "../styles/index.css" 
-
+import "../styles/style.css"
 const Contact = () => {
   return (
     <section id="contact" className="section">
         <div className="container">
             <h2 className="section-title">Contact Us</h2>
-            <div className="contact-grid">
-                <div className="contact-info fade-in">
+            <div className="contact-grid  ">
+                <div className="contact-info ">
+                    {/* fade-in */}
                     <h3 className="mb-[2rem] text-[#2c3e50]">Get in Touch</h3>
                     
                     <div className="contact-item">
@@ -42,8 +42,8 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                
-                <div className="fade-in">
+                {/* fade-in */}
+                <div className="">
                     <form id="contactForm" className="bg-white p-[2rem] rounded-[15px] shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
                         <h3 className="mb-[1.5rem]  text-[#2c3e50] ">Send us a Message</h3>
                         
