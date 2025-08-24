@@ -12,10 +12,10 @@ const App = () => {
   return (
     <div>
  
-      {/* <Admin/> */}
+      <Admin/>
      {/* { loginStatus ? <Admin/> : <Login/>}  */}
       {/* {loginStatus==false? <Index/>: <Admin/>} */}
-    <Index/>
+    {/* <Index/> */}
      
       
     </div>

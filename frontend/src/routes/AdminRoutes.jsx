@@ -5,6 +5,7 @@ import Index from "../pages/Index"
 import Login from "../pages/Login"
 import Admin from "../pages/Admin"
 import About from "../layouts/About"
+import Admin_Home_Section from "../layouts/Admin_Home_Section"
 
 
 const AdminRoutes = () => {
@@ -17,6 +18,7 @@ const AdminRoutes = () => {
             <Route path="/a-home" element={<Index />} />
             <Route path="/a-about" element={<About/>} /> 
             <Route path="/login" element={<Login/>} />
+            <Route path="/home_section" element={<Admin_Home_Section/>}/>
             
             
              

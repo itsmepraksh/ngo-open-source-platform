@@ -19,7 +19,7 @@ const Admin_navBar = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link id="#home" className="nav-link" data-section="home">
+                    < Link to="/home_section" className="nav-link" data-section="home">
                         <i className="fas fa-home"></i>
                         Home Section
                     </Link>
