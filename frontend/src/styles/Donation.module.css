@@ -1,0 +1,192 @@
+.section {
+  padding: 4rem 1rem;
+  background: #f9fafb;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 3rem 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+  margin-top: 70px;
+}
+
+.section_title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.donate_message {
+  font-size: 1.05rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+
+.donate_options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.donate_btn {
+  padding: 0.9rem 2.7rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background:rgb(18, 194, 18);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.donate_btn:hover {
+  transform: translateY(-2px);
+}
+
+.donate_btn:active {
+  transform: scale(0.98);
+}
+
+.custom_amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.custom_amount input {
+  padding: 0.8rem 2.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+  transition: border 0.3s, box-shadow 0.3s;
+  margin-right: 40px;
+}
+
+.custom_amount input:focus {
+  border-color: #e74c3c;;
+  outline: none;
+}
+
+.btn_primary {
+  padding: 0.85rem 1.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn_primary:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn_primary:active {
+  transform: scale(0.98);
+}
+
+
+.impactBox {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.impactTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.impactItem {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.impactItem:hover {
+  transform: translateY(-4px);
+}
+
+.impactValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+.impactText {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem 1.2rem;
+  }
+
+  .section_title {
+    font-size: 1.8rem;
+  }
+
+  .donate_btn {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .custom_amount {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom_amount input {
+    width: 100%;
+  }
+
+  .btn_primary {
+    width: 100%;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

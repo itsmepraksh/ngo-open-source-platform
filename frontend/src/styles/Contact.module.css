@@ -1,0 +1,193 @@
+.section {
+  padding: 4rem 1rem;
+  background: #f9f9f9;
+  margin-top: 30px;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;   
+  text-align: center; 
+}
+
+/* Section title */
+.section_title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+
+/* Grid layout */
+/* Grid layout */
+.contact_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: stretch; /* 🔹 dono columns ki height equal ho jayegi */
+}
+
+/* Left side - contact info */
+.contact_info {
+  background: #fff;
+  padding: 1.5rem;   /* 🔹 pehle 2rem tha, ab thoda compact */
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left; 
+  width: 100%;
+  max-width: 500px;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* evenly ke jagah compact rakha */
+}
+
+/* Form wrapper */
+.contactWrapper {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left; 
+  width: 100%;
+  max-width: 500px;
+  height: 100%; /* 🔹 Equal height maintain */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.Get_touch_title {
+  font-size: 1.4rem;   /* thoda chhota kiya */
+  margin-bottom: 1rem; /* pehle 1.2rem tha */
+  color: #34495e;
+}
+
+.contact_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;        /* pehle 1rem tha */
+  margin-bottom: 0.8rem; /* pehle 1.2rem tha */
+}
+
+.contact_item i {
+  font-size: 1.1rem; 
+  color: #2980b9;
+  min-width: 22px;
+}
+
+
+
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color:#e74c3c;
+}
+
+/* Button */
+.submitButton {
+  padding: 0.9rem 1rem;
+  background:#e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #e74c3c;
+}
+
+/* Map */
+.mapContainer {
+  grid-column: 1 / -1; /* full width under both columns */
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: 0;
+}
+
+.contact_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color:#e74c3c;;
+  background: #eaf4fc;
+  padding: 0.6rem;
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+@media (max-width: 768px) {
+  .contact_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section_title {
+    font-size: 1.75rem;
+  }
+
+  .Get_touch_title,
+  .formTitle {
+    font-size: 1.25rem;
+  }
+}
