@@ -1,31 +1,32 @@
-//  import "../styles/index.css" 
+import style from "../styles/Volunteer.module.css" 
+
 
 const Volunteer = () => {
   return (
-    <section id="volunteer" className="section">
-        <div className="container">
-            <h2 className="section-title">Volunteer With Us</h2>
+    <section id="volunteer" className={`${style.section}`}>
+        <div className={`${style.container}`}>
+            <h2 className={`${style.section_title}`}>Volunteer With Us</h2>
             {/*fade-in  */}
-            <div className="volunteer-form ">
-                <h3 className="text-center mb-2rem text-[#2c3e50]">Join Our Movement</h3>
+            <div className={`${style.volunteer_form}`}>
+                <h3 className={`${style.form_title}`}>Join Our Movement</h3>
                 <form id="volunteerForm">
-                    <div className="volunteer-form-grid">
-                        <div className="form-group">
+                    <div className={`${style.volunteer_form_grid}`}>
+                        <div className={`${style.form_group}`}>
                             <label>Full Name</label>
                             <input type="text" id="name" name="name" required/>
                         </div>
                         
-                        <div className="form-group">
+                        <div className={`${style.form_group}`}>
                             <label>Email Address</label>
                             <input type="email" id="email" name="email" required/>
                         </div>
                         
-                        <div className="form-group">
+                        <div className={`${style.form_group}`}>
                             <label >Phone Number</label>
                             <input type="tel" id="phone" name="phone" required/>
                         </div>
                         
-                        <div className="form-group">
+                        <div className={`${style.form_group}`}>
                             <label >Area of Interest</label>
                             <select id="interest" name="interest" required>
                                 <option value="">Select an area</option>
@@ -37,7 +38,7 @@ const Volunteer = () => {
                             </select>
                         </div>
                         
-                        <div className="form-group">
+                        <div className={`${style.form_group}`}>
                             <label >Availability</label>
                             <select id="availability" name="availability" required>
                                 <option value="">Select availability</option>
@@ -48,13 +49,13 @@ const Volunteer = () => {
                             </select>
                         </div>
                         
-                        <div className="form-group form-group-full">
+                        <div className={`${style.form_group_full}`}>
                             <label >Tell us about yourself</label>
                             <textarea id="message" name="message" rows="4" placeholder="Share your motivation, skills, or any questions you have..."></textarea>
                         </div>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary w-full mt-[1rem]">Submit Application</button>
+                    <button type="submit" className={`${style.submit_button}`}>Submit Application</button>
                 </form>
             </div>
         </div>

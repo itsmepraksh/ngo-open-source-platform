@@ -1,0 +1,120 @@
+.section {
+  padding: 4rem 1rem;
+  background: #f9fafb;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.section_title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #222;
+  margin-top: 60px;
+}
+
+.volunteer_form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.form_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Grid layout */
+.volunteer_form_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form_group,
+.form_group_full {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_group_full {
+  grid-column: span 2;
+}
+
+/* Label Styling */
+label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* Input + Select + Textarea */
+input,
+select,
+textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+  background: #fafafa;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgb(232, 52, 24);
+  outline: none;
+  background: #fff;
+}
+
+/* Submit Button */
+.submit_button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background:rgb(232, 52, 24);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.submit_button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .volunteer_form_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form_group_full {
+    grid-column: span 1;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
