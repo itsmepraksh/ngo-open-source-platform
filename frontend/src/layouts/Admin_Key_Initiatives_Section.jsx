@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Admin_Key_Initiatives_Section = () => {
   return (
@@ -7,7 +8,8 @@ const Admin_Key_Initiatives_Section = () => {
                 <div className="section-header">
                     <h3>Key Initiatives Management</h3>
                     <button className="btn btn-success" onclick="addNewProject()">
-                        <i className="fas fa-plus"></i> Add New Initiative
+                        <Link to="/key_initiatives/form" ><i className="fas fa-plus"></i> Add New Initiative</Link>
+                        
                     </button>
                 </div>
                 <div className="section-content">

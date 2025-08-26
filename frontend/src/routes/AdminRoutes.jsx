@@ -14,6 +14,7 @@ import Admin_Order_Section from "../layouts/Admin_Order_Section"
 import Admin_Contact_Section from "../layouts/Admin_Contact_Section"
 import Admin_Volunteer_Section from "../layouts/Admin_Volunteer_Section"
 import Admin_Donation from "../layouts/Admin_Donation"
+import Admin_Key_Initiatives_Form from "../components/Admin_Key_Initiatives_Form"
 
 
 const AdminRoutes = () => {
@@ -35,6 +36,7 @@ const AdminRoutes = () => {
             <Route path="/contact_section" element={<Admin_Contact_Section/>}/>
             <Route path="/volunteer_section" element={<Admin_Volunteer_Section/>}/>
              <Route path="/donation_section" element={<Admin_Donation/>}/>
+             <Route path="/key_initiatives/form" element={<Admin_Key_Initiatives_Form/>}/>
         </Routes>
     </div>
   )
