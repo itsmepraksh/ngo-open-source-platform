@@ -1,6 +1,6 @@
 import Footer from "../components/Footer/Footer";
 import style from "../styles/Event.module.css"; 
-import { MapPin } from "lucide-react"; // icon
+
 
 const Eventx = () => {
   return (
