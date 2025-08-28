@@ -1,6 +1,7 @@
-import style from "../styles/Contact.module.css"
+import style from "../styles/Contact.module.css" 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
+ 
 
 const Contact = () => {
     return (

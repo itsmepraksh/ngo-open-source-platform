@@ -8,7 +8,7 @@ const Wrapper = (props) => {
     <adminContext.Provider value={[loginStatus,setLoginStatus]}>
       {props.children}
     </adminContext.Provider>
-  );
+  );  
 };
 
 export default Wrapper;
