@@ -20,21 +20,18 @@
   margin-bottom: 2rem;
 }
 
-
-/* Grid layout */
-/* Grid layout */
 .contact_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
-  align-items: stretch; /* 🔹 dono columns ki height equal ho jayegi */
+  align-items: stretch; 
 }
 
-/* Left side - contact info */
+
 .contact_info {
   background: #fff;
-  padding: 1.5rem;   /* 🔹 pehle 2rem tha, ab thoda compact */
+  padding: 1.5rem;   
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   text-align: left; 
@@ -43,7 +40,7 @@
   height: 100%; 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* evenly ke jagah compact rakha */
+  justify-content: flex-start;
 }
 
 /* Form wrapper */
@@ -55,7 +52,7 @@
   text-align: left; 
   width: 100%;
   max-width: 500px;
-  height: 100%; /* 🔹 Equal height maintain */
+  height: 100%; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,30 +60,26 @@
 
 
 .Get_touch_title {
-  font-size: 1.4rem;   /* thoda chhota kiya */
-  margin-bottom: 1rem; /* pehle 1.2rem tha */
+  font-size: 1.4rem;   
+  margin-bottom: 1rem; 
   color: #34495e;
 }
 
 .contact_item {
   display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;        /* pehle 1rem tha */
-  margin-bottom: 0.8rem; /* pehle 1.2rem tha */
+  align-items: center;
+  gap: 0.8rem;       
+  margin-bottom: 0.8rem; 
 }
-
-.contact_item i {
-  font-size: 1.1rem; 
-  color: #2980b9;
-  min-width: 22px;
-}
-
-
-
 
 .contactForm {
   display: flex;
   flex-direction: column;
+}
+
+.form_icons {
+  font-size: 23px;
+  color: red;
 }
 
 .formTitle {
@@ -141,7 +134,7 @@
 
 /* Map */
 .mapContainer {
-  grid-column: 1 / -1; /* full width under both columns */
+  grid-column: 1 / -1; 
   width: 100%;
   border-radius: 15px;
   overflow: hidden;
@@ -154,28 +147,6 @@
   min-height: 300px;
   border: 0;
 }
-
-.contact_item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.icon {
-  font-size: 1.5rem;
-  color:#e74c3c;;
-  background: #eaf4fc;
-  padding: 0.6rem;
-  border-radius: 50%;
-  min-width: 40px;
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
 
 @media (max-width: 768px) {
   .contact_grid {
