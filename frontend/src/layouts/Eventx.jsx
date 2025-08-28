@@ -1,6 +1,7 @@
-import Footer from "../components/Footer/Footer";
 import style from "../styles/Event.module.css"; 
-import { MapPin } from "lucide-react"; // icon
+//import { MapPin } from "lucide-react"; // icon
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const Eventx = () => {
   return (
@@ -25,15 +26,14 @@ const Eventx = () => {
                 to make our neighborhoods cleaner and greener.
               </p>
               <p className={style.event_location}>
-                <MapPin size={16} className={style.icon}/> 
+                {/* <MapPin size={16} className={style.icon}/>  */}
+                <FontAwesomeIcon icon={faLocationDot} className={style.icons} />
                 <strong> Location:</strong> Pune, Maharashtra
               </p>
             </div>
           </div>
           
         </div>
-
-        {/* <Footer/> */}
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 import style from "../styles/Contact.module.css"
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLocationDot, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
     return (
@@ -8,11 +9,12 @@ const Contact = () => {
                 <h2 className={`${style.section_title}`}>Contact Us</h2>
                 <div className={`${style.contact_grid}`}>
                     <div className={`${style.contact_info}`}>
-                        {/* fade-in */}
+
                         <h3 className={`${style.Get_touch_title}`}>Get in Touch</h3>
 
                         <div className={style.contact_item}>
-                            <FaMapMarkerAlt className={style.icon} />
+                            <FontAwesomeIcon icon={faLocationDot} className={style.form_icons} />
+
                             <div>
                                 <strong>Address</strong><br />
                                 <span id="contactAddress">123 Community Center Road<br /> Pune, Maharashtra 411001</span>
@@ -20,7 +22,7 @@ const Contact = () => {
                         </div>
 
                         <div className={style.contact_item}>
-                            <FaPhone className={style.icon} />
+                            <FontAwesomeIcon icon={faPhone} className={style.form_icons} />
                             <div>
                                 <strong>Phone</strong><br />
                                 <span id="contactPhone">+91 98765 43210</span>
@@ -28,7 +30,7 @@ const Contact = () => {
                         </div>
 
                         <div className={style.contact_item}>
-                            <FaEnvelope className={style.icon} />
+                            <FontAwesomeIcon icon={faEnvelope} className={style.form_icons} />
                             <div>
                                 <strong>Email</strong><br />
                                 <span id="contactEmail">info@lavanyafoundation.org</span>
@@ -36,14 +38,13 @@ const Contact = () => {
                         </div>
 
                         <div className={style.contact_item}>
-                            <FaClock className={style.icon} />
+                            <FontAwesomeIcon icon={faClock} className={style.form_icons} />
                             <div>
                                 <strong>Office Hours</strong><br />
                                 <span id="contactHours">Monday - Saturday: 9:00 AM - 6:00 PM</span>
                             </div>
                         </div>
                     </div>
-                    {/* fade-in */}
                     <div className={style.contactWrapper}>
                         <form id="contactForm" className={style.contactForm}>
                             <h3 className={style.formTitle}>Send us a Message</h3>
@@ -73,18 +74,6 @@ const Contact = () => {
                             </button>
                         </form>
                     </div>
-
-
-                    {/* <div className="map-container mt-[3rem]">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711156266!2d73.70997!3d18.5204303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1629794729807!5m2!1sen!2sin"
-                            width="100%"
-                            height="300"
-                            className="border-[0] rounded-[15px]"
-
-                            loading="lazy">
-                        </iframe>
-                    </div> */}
                     <div className={style.mapContainer}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711156266!2d73.70997!3d18.5204303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1629794729807!5m2!1sen!2sin"
