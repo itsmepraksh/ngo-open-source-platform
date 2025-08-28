@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Admin_Donation = () => {
+const Admin_Donation_Section = () => {
   return (
     //  <!-- Donations Section -->
             <div id="donations" className="content-section" >
@@ -16,4 +16,4 @@ const Admin_Donation = () => {
   )
 }
 
-export default Admin_Donation
+export default Admin_Donation_Section;
