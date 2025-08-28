@@ -74,7 +74,6 @@ const Admin_navBar = () => {
                 </li>
             </ul>
         </nav>
-    
   )
 }
 

@@ -1,6 +1,6 @@
  
 
-const Admin_Dashboard = () => {
+const Admin_Dashboard_Section = () => {
   return (
     <div id="dashboard" className="content-section  ">
       {/* <!-- Dashboard Section --> */}
@@ -36,4 +36,4 @@ const Admin_Dashboard = () => {
   );
 };
 
-export default Admin_Dashboard;
+export default Admin_Dashboard_Section;

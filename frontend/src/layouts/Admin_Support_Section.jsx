@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Admin_Support_Section = () => {
   return (
@@ -7,7 +8,7 @@ const Admin_Support_Section = () => {
                 <div className="section-header">
                     <h3>Support Products Management</h3>
                     <button className="btn btn-success" onclick="addNewProduct()">
-                        <i className="fas fa-plus"></i> Add New Product
+                       <Link to="/support_section/form"><i className="fas fa-plus"></i> Add New Product</Link> 
                     </button>
                 </div>
                 <div className="section-content">

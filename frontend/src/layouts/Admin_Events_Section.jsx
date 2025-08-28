@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Admin_Events_Section = () => {
   return (
@@ -7,7 +8,7 @@ const Admin_Events_Section = () => {
                 <div className="section-header">
                     <h3>Events & Activities Management</h3>
                     <button className="btn btn-success" onclick="addNewEvent()">
-                        <i className="fas fa-plus"></i> Add New Event
+                        <Link to="/events_section/form"><i className="fas fa-plus"></i> Add New Event</Link>
                     </button>
                 </div>
                 <div className="section-content">
