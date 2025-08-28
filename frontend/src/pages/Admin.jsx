@@ -10,7 +10,7 @@ const Admin = () => {
 
   const [loginStatus,setLoginStatus] = useContext(adminContext);
 
-  console.log(loginStatus)
+  // console.log(loginStatus)
 
   const logout = ()=>{
     setLoginStatus(false);
@@ -18,7 +18,7 @@ const Admin = () => {
     console.log(loginStatus);
   }
 
-   console.log(loginStatus)
+  //  console.log(loginStatus)
   return (
     <div className="admin-container h-full">
       <div className="sidebar " id="sidebar">
