@@ -1,6 +1,4 @@
 import style from "../styles/Event.module.css"; 
- 
-//import { MapPin } from "lucide-react"; // icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
  

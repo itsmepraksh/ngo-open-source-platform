@@ -4,11 +4,15 @@
   margin-top: 30px;
 }
 
-
+/* Center container */
 .container {
   max-width: 1200px;
-  margin: 0 auto;   
-  text-align: center; 
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Horizontal center */
+  justify-content: center; /* Vertical center */
 }
 
 /* Section title */
@@ -20,56 +24,45 @@
   margin-bottom: 2rem;
 }
 
+/* Grid */
 .contact_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
-  align-items: stretch; 
-}
-
-
-.contact_info {
-  background: #fff;
-  padding: 1.5rem;   
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: left; 
+  align-items: start;
+  justify-content: center;
   width: 100%;
-  max-width: 500px;
-  height: 100%; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  max-width: 1100px;
 }
 
-/* Form wrapper */
+/* Cards */
+.contact_info,
 .contactWrapper {
   background: #fff;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: left; 
+  text-align: left;
   width: 100%;
   max-width: 500px;
-  height: 100%; 
+  margin: 0 auto; /* Center */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-
 .Get_touch_title {
-  font-size: 1.4rem;   
-  margin-bottom: 1rem; 
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
   color: #34495e;
 }
 
 .contact_item {
   display: flex;
   align-items: center;
-  gap: 0.8rem;       
-  margin-bottom: 0.8rem; 
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .contactForm {
@@ -112,13 +105,13 @@
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color:#e74c3c;
+  border-color: #e74c3c;
 }
 
 /* Button */
 .submitButton {
   padding: 0.9rem 1rem;
-  background:#e74c3c;
+  background: #e74c3c;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -129,12 +122,12 @@
 }
 
 .submitButton:hover {
-  background: #e74c3c;
+  background: #c0392b;
 }
 
 /* Map */
 .mapContainer {
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
   width: 100%;
   border-radius: 15px;
   overflow: hidden;
@@ -148,17 +141,90 @@
   border: 0;
 }
 
-@media (max-width: 768px) {
+/* ✅ Mobile */
+@media (max-width: 667px) {
   .contact_grid {
     grid-template-columns: 1fr;
   }
 
   .section_title {
     font-size: 1.75rem;
+    margin-top: 40px;
   }
 
   .Get_touch_title,
   .formTitle {
     font-size: 1.25rem;
+  }
+
+  .contact_info,
+  .contactWrapper {
+    max-width: 100%;
+  }
+}
+
+/* ✅ Tablet */
+@media (max-width: 768px) {
+  .contact_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section_title {
+    font-size: 1.85rem;
+    margin-top: 50px;
+  }
+
+  .Get_touch_title,
+  .formTitle {
+    font-size: 1.3rem;
+  }
+
+  .contact_info,
+  .contactWrapper {
+    max-width: 90%;
+  }
+}
+
+/* Laptop */
+@media (max-width: 1024px) {
+  .contact_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section_title {
+    font-size: 1.85rem;
+    margin-top: 50px;
+  }
+
+  .Get_touch_title,
+  .formTitle {
+    font-size: 1.3rem;
+  }
+
+  .contact_info,
+  .contactWrapper {
+    max-width: 90%;
+  }
+}
+
+/* Laptop L */
+@media (max-width: 1440px) {
+  .contact_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section_title {
+    font-size: 1.85rem;
+    margin-top: 50px;
+  }
+
+  .Get_touch_title,
+  .formTitle {
+    font-size: 1.3rem;
+  }
+
+  .contact_info,
+  .contactWrapper {
+    max-width: 90%;
   }
 }
