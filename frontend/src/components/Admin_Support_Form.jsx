@@ -1,13 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Admin_Support_Form = () => {
+
+    const [closeFromBtn, setcloseFromBtn] = useState(false);
+
+    const clickBtn=()=>{
+        setcloseFromBtn(true);
+    }
+
   return (
     //  <!-- Product Modal -->
     <div id="productModal" class="modal" >
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="productModalTitle">Add New Product</h3>
-                <span class="close" >&times;</span>
+                <button onClick={clickBtn}><Link to={"/support_section"}>&times;</Link></button>
                 {/* {onclick="closeModal('productModal')"} */}
             </div>
             <form id="productForm">
