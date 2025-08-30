@@ -7,67 +7,67 @@ const Admin_navBar = () => {
         <nav className="w-full">
              <ul className="nav-menu">
                 <li className="nav-item">
-                    < Link to="/dashboard" className="nav-link  active" data-section="dashboard">
+                    < Link to="/admin/dashboard" className="nav-link  active" data-section="dashboard">
                         <i className="fas fa-tachometer-alt"></i>
                         Dashboard
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/general" className="nav-link" data-section="general">
+                    < Link to="/admin/general" className="nav-link" data-section="general">
                         <i className="fas fa-cog"></i>
                         General Settings
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/home_section" className="nav-link" data-section="home">
+                    < Link to="/admin/home" className="nav-link" data-section="home">
                         <i className="fas fa-home"></i>
                         Home Section
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/about_section" className="nav-link" data-section="about">
+                    < Link to="/admin/about" className="nav-link" data-section="about">
                         <i className="fas fa-info-circle"></i>
                         About Section
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/key_initiatives" className="nav-link" data-section="initiatives">
+                    < Link to="/admin/key_initiatives" className="nav-link" data-section="initiatives">
                         <i className="fas fa-project-diagram"></i>
                         Key Initiatives
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/events_section" className="nav-link" data-section="events">
+                    < Link to="/admin/events" className="nav-link" data-section="events">
                         <i className="fas fa-calendar-alt"></i>
                         Events & Activities
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/support_section" className="nav-link" data-section="support">
+                    < Link to="/admin/support" className="nav-link" data-section="support">
                         <i className="fas fa-shopping-cart"></i>
                         Support Products
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/order_section" className="nav-link" data-section="orders">
+                    < Link to="/admin/orders" className="nav-link" data-section="orders">
                         <i className="fas fa-receipt"></i>
                         Product Orders
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/contact_section" className="nav-link" data-section="contact">
+                    < Link to="/admin/contact" className="nav-link" data-section="contact">
                         <i className="fas fa-address-book"></i>
                         Contact Information
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/volunteer_section" className="nav-link" data-section="volunteers">
+                    < Link to="/admin/volunteer" className="nav-link" data-section="volunteers">
                         <i className="fas fa-users"></i>
                         Volunteer Applications
                     </Link>
                 </li>
                 <li className="nav-item">
-                    < Link to="/donation_section" className="nav-link" data-section="donations">
+                    < Link to="/admin/donation" className="nav-link" data-section="donations">
                         <i className="fas fa-hand-holding-heart"></i>
                         Donations
                     </Link>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+ 
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";  
 
-const Admin_Events_Form = () => {
-  const [closeFromBtn, setCloseFromBtn] = useState(false);
+const Admin_Events_Form = () => { 
 
   const navigate = useNavigate();
 
@@ -33,21 +32,16 @@ const Admin_Events_Form = () => {
     }
     
   };
-
-  const clickBtn = () => {
-    setCloseFromBtn(true);
-  };
-
+ 
   return (
     <div id="eventModal" className="modal ">
       <div className="modal-content">
         <div className="modal-header">
           <h3 id="eventModalTitle">Add New Event</h3>
-          <button onClick={clickBtn}>
-            <Link to={"/events_section"}>&times;</Link>
+          <button >
+            <Link to={"/admin/events_section"}>&times;</Link>
           </button>
-
-          {/* {onclick="closeModal('eventModal')"} */}
+ 
         </div>
         <form id="eventForm" onSubmit={handleSubmit(submitHandler)}>
           <div className="modal-body">
@@ -95,8 +89,7 @@ const Admin_Events_Form = () => {
               className="btn btn-secondary"
             >
               Cancel
-            </button>
-            {/* {onclick="closeModal('eventModal')"} */}
+            </button> 
             <button type="submit" className="btn btn-primary">
               Save Event
             </button>
