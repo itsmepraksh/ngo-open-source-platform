@@ -1,4 +1,3 @@
-// import "../styles/index.css" 
 import style from '../styles/Shop.module.css'
 
 const Shop = () => {

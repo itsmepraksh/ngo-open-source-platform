@@ -84,7 +84,7 @@ textarea:focus {
   padding: 0.9rem;
   font-size: 1.1rem;
   font-weight: 600;
-  background:rgb(232, 52, 24);
+  background: rgb(232, 52, 24);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -113,8 +113,82 @@ textarea:focus {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* Extra mobile responsive */
+@media (max-width: 667px) {
+  .section_title {
+    font-size: 2rem;
+    margin-top: 80px;
+  }
+
+  .volunteer_form {
+    padding: 1.5rem;
+
+  }
+
+  .submit_button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .section_title {
+    font-size: 2rem;
+    margin-top: 80px;
+  }
+
+  .volunteer_form {
+    padding: 1.5rem;
+
+  }
+
+  .submit_button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* laptop */
+@media (max-width: 1024px) {
+  .section_title {
+    font-size: 2rem;
+    margin-top: 80px;
+  }
+
+  .volunteer_form {
+    padding: 1.5rem;
+
+  }
+
+  .submit_button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Laptop L */
+@media (max-width: 1440px) {
+  .section_title {
+    font-size: 2rem;
+    margin-top: 80px;
+  }
+
+  .volunteer_form {
+    padding: 1.5rem;
+
+  }
+
+  .submit_button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
