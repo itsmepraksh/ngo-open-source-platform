@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Admin_Events_Section = () => {
   return (
     // <!-- Events Section -->
@@ -9,7 +10,7 @@ const Admin_Events_Section = () => {
         <h3>Events & Activities Management</h3>
        
           <Link to="/events_section/form">
-           <button className="btn btn-success" onclick="addNewEvent()">
+           <button className="btn btn-success" >
             <i className="fas fa-plus"></i> Add New Event
         </button> 
         </Link>
