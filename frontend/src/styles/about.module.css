@@ -1,13 +1,14 @@
+
+
+/* Section Styles */
+.section { 
+    padding: 5rem 0;  
+    font-family: 'OutfitRegular';
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Section Styles */
-.section {
-    padding: 5rem 0;
-    padding-top: 7rem;
+    padding: 0 1rem;
 }
 
 .section:nth-child(even) {
@@ -16,6 +17,7 @@
 
 .section_title {
     text-align: center;
+    font-family: 'OutfitMedium';
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: #2c3e50;
@@ -23,8 +25,9 @@
 
 /* About Section */
 .about_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    
     gap: 3rem;
     align-items: center;
     margin-bottom: 3rem;
@@ -73,33 +76,12 @@
     margin-bottom: 0.5rem;
 }
 
-@media (max-width: 667px) {
-    .section {
-        padding: 3rem 1rem;
-    }
-
-    .section_title {
-        font-size: 1.8rem;
-    }
-
-    .founder_image {
-        height: 220px;
-        width: 220px;
-    }
-
-    .timeline {
-        flex-direction: column;
-        /* stack vertically */
-        align-items: center;
-    }
-
-    .timeline_item {
-        min-width: unset;
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .timeline_year {
-        font-size: 1.5rem;
+@media (min-width:1024px) {
+    .section{
+        padding-top: 7rem;
     }
 }
+
+
+ 
+ 

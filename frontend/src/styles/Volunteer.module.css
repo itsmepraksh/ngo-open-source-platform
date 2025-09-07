@@ -1,19 +1,21 @@
-.section {
-  padding: 4rem 1rem;
+.volunteer_section {
+    font-family: 'OutfitRegular';
+  padding: 5rem 0;
   background: #f9fafb;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
+  padding: 0 1rem;
 }
 
 .section_title {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  color: #222;
-  margin-top: 60px;
+  font-size: 2.5rem;
+  text-align: center; 
+  color: #222; 
+  padding-bottom: 2rem ;
+    font-family: 'OutfitMedium';
 }
 
 .volunteer_form {
@@ -33,9 +35,9 @@
 }
 
 /* Grid layout */
-.volunteer_form_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.volunteer_form {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -95,18 +97,7 @@ textarea:focus {
 .submit_button:hover {
   transform: translateY(-2px);
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .volunteer_form_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form_group_full {
-    grid-column: span 1;
-  }
-}
-
+ 
 /* Fade-in animation */
 @keyframes fadeIn {
   from {
@@ -119,76 +110,11 @@ textarea:focus {
     transform: translateY(0);
   }
 }
+ 
 
-/* Extra mobile responsive */
-@media (max-width: 667px) {
-  .section_title {
-    font-size: 2rem;
-    margin-top: 80px;
-  }
-
-  .volunteer_form {
-    padding: 1.5rem;
-
-  }
-
-  .submit_button {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  .section_title {
-    font-size: 2rem;
-    margin-top: 80px;
-  }
-
-  .volunteer_form {
-    padding: 1.5rem;
-
-  }
-
-  .submit_button {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-}
-
-/* laptop */
-@media (max-width: 1024px) {
-  .section_title {
-    font-size: 2rem;
-    margin-top: 80px;
-  }
-
-  .volunteer_form {
-    padding: 1.5rem;
-
-  }
-
-  .submit_button {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-}
-
-/* Laptop L */
-@media (max-width: 1440px) {
-  .section_title {
-    font-size: 2rem;
-    margin-top: 80px;
-  }
-
-  .volunteer_form {
-    padding: 1.5rem;
-
-  }
-
-  .submit_button {
-    font-size: 1rem;
-    padding: 0.8rem;
+@media (min-width:1024px) {
+  .volunteer_section{
+    padding: 7rem 0;
   }
 }
 

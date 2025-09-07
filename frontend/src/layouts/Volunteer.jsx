@@ -3,14 +3,14 @@ import style from "../styles/Volunteer.module.css"
 
 const Volunteer = () => {
   return (
-    <section id="volunteer" className={`${style.section}`}>
+    <section id="volunteer" className={`${style.volunteer_section}`}>
         <div className={`${style.container}`}>
             <h2 className={`${style.section_title}`}>Volunteer With Us</h2>
             {/*fade-in  */}
             <div className={`${style.volunteer_form}`}>
                 <h3 className={`${style.form_title}`}>Join Our Movement</h3>
                 <form id="volunteerForm">
-                    <div className={`${style.volunteer_form_grid}`}>
+                    <div className={`${style.volunteer_form}`}>
                         <div className={`${style.form_group}`}>
                             <label>Full Name</label>
                             <input type="text" id="name" name="name" required/>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const Admin_Key_Initiatives_Section = () => {
   return (
     // <!-- Key Initiatives Section -->
+    
     <div id="projects" className="content-section">
       <div className="section-header">
         <h3>Key Initiatives Management</h3>

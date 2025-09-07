@@ -1,9 +1,9 @@
 // import "../styles/index.css" 
-import style from '../styles/Projects.module.css'
+import style from '../styles/Projects.module.css';
 
 const Projects = () => {
   return (
-    <section id="projects" className={`${style.section}`}>
+    <section id="projects" className={`${style.project_section}`}>
       <div className={`${style.container}`}>
         <h2 className={`${style.section_title}`}>Our Key Initiatives</h2>
         <div className={`${style.projects_grid}`} id="projectsContainer">

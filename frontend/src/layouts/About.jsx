@@ -2,12 +2,12 @@ import style from "../styles/about.module.css";
 
 const About = () => {
   return (
-  <section id="about" className={`${style.section}`}>
-        <div className={`${style.container}`}>
+  <section id="about" className={style.section}>
+        <div className={style.container}>
             <h2 className={`${style.section_title}`}>About Us</h2>
             <div className={`${style.about_grid}`}>
                 {/*  fade-in-left*/}
-                <div className={`${style.about_text}`}>
+                <div className={style.about_text}>
                     <h3 id="missionTitle">Our Mission</h3>
                     <p id="missionText">At Lavanya Foundation, we believe in the power of collective action to create meaningful change. Our mission is to address critical social issues through innovative programs that focus on food security, environmental sustainability, and community empowerment.</p>
                     

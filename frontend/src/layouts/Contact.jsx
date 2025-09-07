@@ -9,7 +9,7 @@ const Contact = () => {
             <div className={`${style.container}`}>
                 <h2 className={`${style.section_title}`}>Contact Us</h2>
                 <div className={`${style.contact_grid}`}>
-                    <div className={`${style.contact_info}`}>
+                    <div className={`${style.contact_info} ${style.a_part}`}>
 
                         <h3 className={`${style.Get_touch_title}`}>Get in Touch</h3>
 
@@ -46,7 +46,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={style.contactWrapper}>
+                    <div className={`${style.contactWrapper} ${style.b_part}`}>
                         <form id="contactForm" className={style.contactForm}>
                             <h3 className={style.formTitle}>Send us a Message</h3>
 
@@ -75,7 +75,7 @@ const Contact = () => {
                             </button>
                         </form>
                     </div>
-                    <div className={style.mapContainer}>
+                    <div className={`${style.mapContainer} ${style.c_part}`}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711156266!2d73.70997!3d18.5204303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1629794729807!5m2!1sen!2sin"
                             className={style.mapIframe}

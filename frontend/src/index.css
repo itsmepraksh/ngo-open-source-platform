@@ -1,2 +1,49 @@
 @import "tailwindcss";
  
+ 
+ 
+@font-face {
+    font-family: 'OutfitMedium';
+    src: url("/fonts/Outfit-Medium.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'OutfitRegular';
+    src: url("/fonts/Outfit-Regular.ttf") format("truetype");
+} 
+
+@font-face {
+    font-family: 'OutfitThin';
+    src: url("/fonts/Outfit-Thin.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'OutfitBlack';
+    font-weight: 500;
+    src: url("/fonts/Outfit-Black.ttf") format("truetype");
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+ 
+
+@layer base {
+    /* Form elements ko exclude kar ke baaki sab mein cursor hide */
+    *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+        caret-color: transparent;
+    }
+     
+    p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th {
+        caret-color: transparent;
+    }
+     
+    [contenteditable="true"] {
+        caret-color: transparent;
+    }
+     
+    input, textarea, select {
+        caret-color: auto;
+    }
+}

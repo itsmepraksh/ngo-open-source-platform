@@ -9,10 +9,13 @@
     justify-content: center;
     color: white;
     text-align: center;
+    font-family: 'OutfitRegular';
 }
+
 
 .hero_content h1 {
     font-size: 3.5rem;
+    font-family: 'OutfitBlack';
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
 }
