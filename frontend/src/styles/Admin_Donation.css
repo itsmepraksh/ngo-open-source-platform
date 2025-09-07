@@ -1,0 +1,51 @@
+/* Table */
+.donation-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.donation-table thead {
+  background-color:#34495e;
+  color: #fff;
+}
+
+.donation-table th,
+.donation-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+
+
+/* Status badges */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.status-badge.success {
+  background-color: #e8f5e9;
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.status-badge.pending {
+  background-color: #fff3e0;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+.status-badge.failed {
+  background-color: #ffebee;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
