@@ -9,6 +9,7 @@ import Eventx from "../layouts/Eventx";
 import Donation from "../layouts/Donation";
 import Contact from "../layouts/Contact";
 import Shop from "../layouts/Shop";
+import Place_Order_Form from "../layouts/Place_Order_Form";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/donatex" element={<Donation/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/shop" element={<Shop/>}/>
+      <Route path="/place-order" element={<Place_Order_Form/>}/>
     </Routes>
   );
 };

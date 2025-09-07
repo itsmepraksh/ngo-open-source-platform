@@ -4,19 +4,20 @@ import AdminRoutes from "../routes/AdminRoutes";
 import Admin_navBar from "../components/Admin_navBar";
 import { useContext } from "react";
 import { adminContext } from "../Wrapper";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+  const navigate = useNavigate();
 
-
-  const [loginStatus,setLoginStatus] = useContext(adminContext);
+  const [loginStatus, setLoginStatus] = useContext(adminContext);
 
   // console.log(loginStatus)
 
-  const logout = ()=>{
+  const logout = () => {
     setLoginStatus(false);
     console.log("Logout clicked");
     console.log(loginStatus);
-  }
+  };
 
   //  console.log(loginStatus)
   return (
@@ -31,15 +32,17 @@ const Admin = () => {
         <Admin_navBar />
       </div>
 
-
       <div className="main-content">
         <div className="header">
           <h1 id="section-title">Dashboard</h1>
-          <button className="logout-btn active:scale-[0.9]" onClick={logout}>
+          <button
+            className="logout-btn active:scale-[0.9]"
+            onClick={() => navigate("/login")}
+          >
             <i className="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
-        
+
         <AdminRoutes />
       </div>
     </div>

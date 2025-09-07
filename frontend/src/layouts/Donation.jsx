@@ -19,7 +19,9 @@ const Donation = () => {
 
                     <div className={`${style.custom_amount}`}>
                         <input type="number" id="customAmount" placeholder="Enter custom amount" min="1" />
-                        <button className={`${style.btn_primary}`} onClick="donateCustom()">Donate Custom Amount</button>
+                        <button className={`${style.btn_primary}`} 
+                        // onClick="donateCustom()"
+                        >Donate Custom Amount</button>
                     </div>
 
                     <div className={style.impactBox}>

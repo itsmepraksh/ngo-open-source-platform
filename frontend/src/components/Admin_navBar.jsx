@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Admin_navBar = () => {
+  
   return (
     <nav className="w-full">
       <ul className="nav-menu">
@@ -124,5 +125,6 @@ const Admin_navBar = () => {
     </nav>
   );
 };
+ 
 
 export default Admin_navBar;

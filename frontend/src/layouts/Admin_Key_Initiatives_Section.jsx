@@ -6,7 +6,7 @@ const Admin_Key_Initiatives_Section = () => {
     <div id="projects" className="content-section">
       <div className="section-header">
         <h3>Key Initiatives Management</h3>
-        <Link to="/key_initiatives/form">
+        <Link to="/admin/key_initiatives/form">
           <button
             className="btn btn-success" 
           >
