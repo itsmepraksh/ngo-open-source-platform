@@ -22,7 +22,7 @@ const Admin_navBar = () => {
       <ul className="nav-menu">
         <li className="nav-item">
           <Link
-            to="/dashboard"
+            to="/admin/dashboard"
             className="nav-link  active"
             data-section="dashboard"
           >
@@ -32,21 +32,21 @@ const Admin_navBar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/general" className="nav-link" data-section="general">
+          <Link to="/admin/general" className="nav-link" data-section="general">
             <FontAwesomeIcon icon={faGear} className="text-2xl " />
             <i className="fas fa-cog"></i>
             General Settings
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/home_section" className="nav-link" data-section="home">
+          <Link to="/admin/home" className="nav-link" data-section="home">
             <FontAwesomeIcon icon={faHouse} className="text-2xl " />
             <i className="fas fa-home"></i>
             Home Section
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/about_section" className="nav-link" data-section="about">
+          <Link to="/admin/about" className="nav-link" data-section="about">
             <FontAwesomeIcon icon={faCircleInfo} className="text-2xl " />
             <i className="fas fa-info-circle"></i>
             About Section
@@ -54,7 +54,7 @@ const Admin_navBar = () => {
         </li>
         <li className="nav-item">
           <Link
-            to="/key_initiatives"
+            to="/admin/key_initiatives"
             className="nav-link"
             data-section="initiatives"
           >
@@ -64,7 +64,7 @@ const Admin_navBar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/events_section" className="nav-link" data-section="events">
+          <Link to="/admin/events" className="nav-link" data-section="events">
             <FontAwesomeIcon icon={faCalendarDays} className="text-2xl" />
             <i className="fas fa-calendar-alt"></i>
             Events & Activities
@@ -72,7 +72,7 @@ const Admin_navBar = () => {
         </li>
         <li className="nav-item">
           <Link
-            to="/support_section"
+            to="/admin/support"
             className="nav-link"
             data-section="support"
           >
@@ -82,7 +82,7 @@ const Admin_navBar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/order_section" className="nav-link" data-section="orders">
+          <Link to="/admin/order" className="nav-link" data-section="orders">
             <FontAwesomeIcon icon={faReceipt} className="text-2xl" />
             <i className="fas fa-receipt"></i>
             Product Orders
@@ -90,7 +90,7 @@ const Admin_navBar = () => {
         </li>
         <li className="nav-item">
           <Link
-            to="/contact_section"
+            to="/admin/contact"
             className="nav-link"
             data-section="contact"
           >
@@ -101,7 +101,7 @@ const Admin_navBar = () => {
         </li>
         <li className="nav-item">
           <Link
-            to="/volunteer_section"
+            to="/admin/volunteer"
             className="nav-link"
             data-section="volunteers"
           >
@@ -112,7 +112,7 @@ const Admin_navBar = () => {
         </li>
         <li className="nav-item">
           <Link
-            to="/donation_section"
+            to="/admin/donation"
             className="nav-link"
             data-section="donations"
           >

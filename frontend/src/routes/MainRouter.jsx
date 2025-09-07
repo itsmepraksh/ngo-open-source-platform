@@ -45,7 +45,7 @@ const MainRouter = () => {
         <Route path="key_initiatives" element={<Admin_Key_Initiatives_Section />} />
         <Route path="events" element={<Admin_Events_Section />} />
         <Route path="support" element={<Admin_Support_Section />} />
-        <Route path="orders" element={<Admin_Order_Section />} />
+        <Route path="order" element={<Admin_Order_Section />} />
         <Route path="contact" element={<Admin_Contact_Section />} />
         <Route path="volunteer" element={<Admin_Volunteer_Section/>}/>
         <Route path="donation" element={<Admin_Donation_Section/>}/>
