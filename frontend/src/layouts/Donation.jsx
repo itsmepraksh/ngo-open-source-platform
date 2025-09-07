@@ -4,17 +4,25 @@ const Donation = () => {
 
 
     return (
-        <section id="donate" className={`${style.section}`}>
+        <section id="donate" className={`${style.donation_section}`}>
             <div className={`${style.container}`}>
                 <h2 className={`${style.section_title}`}>Support Our Cause</h2>
                 <div className={`${style.fade_in}`}>
                     <p className={`${style.donate_message}`}>Your contribution helps us continue our mission of creating positive change in communities.</p>
 
                     <div className={`${style.donate_options}`}>
-                        <button className={`${style.donate_btn}`} onClick="donate(100)">₹100</button>
-                        <button className={`${style.donate_btn}`} onClick="donate(500)">₹500</button>
-                        <button className={`${style.donate_btn}`} onClick="donate(1000)">₹1000</button>
-                        <button className={`${style.donate_btn}`} onClick="donate(2500)">₹2500</button>
+                        <button className={`${style.donate_btn}`} 
+                        // onClick="donate(100)"
+                        >₹100</button>
+                        <button className={`${style.donate_btn}`} 
+                        // onClick="donate(500)"
+                        >₹500</button>
+                        <button className={`${style.donate_btn}`} 
+                        // onClick="donate(1000)"
+                        >₹1000</button>
+                        <button className={`${style.donate_btn}`} 
+                        // onClick="donate(2500)"
+                        >₹2500</button>
                     </div>
 
                     <div className={`${style.custom_amount}`}>

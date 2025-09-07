@@ -4,9 +4,10 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import Wrapper from "./Wrapper.jsx";
 import {ToastContainer} from "react-toastify";
+import AuthWrapper from "./context/AuthWrapper.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <>
+  <AuthWrapper>
     
     <BrowserRouter> 
       <Wrapper>
@@ -15,5 +16,5 @@ createRoot(document.getElementById("root")).render(
       </Wrapper>
     </BrowserRouter>
      
-  </>
+  </AuthWrapper>
 );

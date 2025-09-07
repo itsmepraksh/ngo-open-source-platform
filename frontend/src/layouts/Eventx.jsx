@@ -5,7 +5,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 const Eventx = () => {
   return (
-    <section id="events" className={`${style.section}`}>
+    <section id="events" className={`${style.event_section}`}>
       <div className={`${style.container}`}>
         <h2 className={`${style.section_title}`}>Events & Activities</h2>
         

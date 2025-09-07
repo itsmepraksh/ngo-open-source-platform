@@ -1,31 +1,30 @@
-.section {
-  padding: 4rem 1rem;
+.donation_section {
+  padding: 5rem 0;
   background: #f9fafb;
+    font-family: 'OutfitRegular';
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   background: #ffffff;
   border-radius: 14px;
-  padding: 3rem 2rem;
+  padding: 0 1rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.6s ease-in-out;
-  margin-top: 70px;
-  text-align: center; 
+  animation: fadeIn 0.6s ease-in-out; 
+  text-align: center;  
 }
 
 .section_title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 2.5rem; 
+    font-family: 'OutfitMedium';
   color: #222;
 }
 
 .donate_message {
+  padding: 1rem 0;
   font-size: 1.05rem;
-  color: #555;
-  margin-bottom: 2rem;
+  color: #555; 
   line-height: 1.6;
 }
 
@@ -35,7 +34,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 .donate_btn {
@@ -57,25 +56,22 @@
 /* Custom Amount Box */
 .custom_amount {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  margin-right: 22px;
+  gap: 1rem; 
 }
 
 .custom_amount input {
   padding: 1rem 2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
-  min-width: 200px;
+  font-size: 1rem; 
 border: 1px solid rgb(239, 85, 24);
 }
 
-.btn_primary {
-  padding: 0.85rem 1.7rem;
+.btn_primary { 
+  padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   background: #e74c3c;
@@ -136,86 +132,22 @@ border: 1px solid rgb(239, 85, 24);
   color: #555;
 }
 
-/* Mobile */
-@media (max-width: 667px) {
-  .container {
-    padding: 2rem 1.5rem;
-  }
-
-  .section_title {
-    font-size: 1.8rem;
-  }
-
-  .custom_amount {
-    flex-direction: column;
-  }
-
-  .custom_amount input, 
-  .btn_primary {
-    width: 100%;
-  }
+@media (min-width:768px) {
+  .custom_amount{
+    flex-direction: row;
+    gap: 2rem;
+  } 
 }
 
-/* tablet */
-@media (max-width: 768px) {
-  .container {
-    padding: 2rem 1.5rem;
+@media (min-width:1024px) {
+  .donate_message{ 
+    align-self:center;
   }
-
-  .section_title {
-    font-size: 1.8rem;
-  }
-
-  .custom_amount {
-    flex-direction: column;
-  }
-
-  .custom_amount input, 
-  .btn_primary {
-    width: 100%;
+  .donation_section{
+    padding: 7rem 0;
   }
 }
-
-/* laptop */
-@media (max-width: 1024px) {
-  .container {
-    padding: 2rem 1.5rem;
-  }
-
-  .section_title {
-    font-size: 1.8rem;
-  }
-
-  .custom_amount {
-    flex-direction: column;
-  }
-
-  .custom_amount input, 
-  .btn_primary {
-    width: 100%;
-  }
-}
-
-/* laptop L */
-@media (max-width: 1440px) {
-  .container {
-    padding: 2rem 1.5rem;
-  }
-
-  .section_title {
-    font-size: 1.8rem;
-  }
-
-  .custom_amount {
-    flex-direction: column;
-  }
-
-  .custom_amount input, 
-  .btn_primary {
-    width: 100%;
-  }
-}
-
+ 
 @keyframes fadeIn {
   from {
     opacity: 0;

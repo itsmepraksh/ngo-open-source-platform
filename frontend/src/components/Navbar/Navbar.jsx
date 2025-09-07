@@ -4,13 +4,13 @@ import style from "../Navbar/nav.module.css";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const Nav = () => {
+const Navbar = () => {
   const [isClicked, setIsClicked] = useState(false);
   console.log(isClicked);
   return (
     <nav className={`${style.navbar}`}>
       <div className={`${style.nav_container}`}>
-        <Link href="#home" className={`${style.logo}`} id="logoText">
+        <Link to="/home" className={`${style.logo}`} id="logoText">
           Lavanya Foundation
         </Link>
         <ul className={ `${style.nav_links2}` }>
@@ -30,7 +30,7 @@ const Nav = () => {
           <Link to="/volunteer">Volunteer</Link>
         </li>
         <li>
-          <Link to="/donatex">Donate</Link>
+          <Link to="/donate">Donate</Link>
         </li>
         <li>
           <Link to="/contact">Contact</Link>
@@ -69,7 +69,7 @@ const Nav = () => {
         </li>
         <li>
           <Link 
-          onClick={() => setIsClicked(!isClicked)} to="/donatex">Donate</Link>
+          onClick={() => setIsClicked(!isClicked)} to="/donate">Donate</Link>
         </li>
         <li>
           <Link 
@@ -84,4 +84,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;

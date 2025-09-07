@@ -5,9 +5,10 @@
  }
 
  body {
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-family: 'OutfitRegular', Tahoma, Geneva, Verdana, sans-serif;
      background: #f5f7fa;
      color: #333;
+
  }
 
  .admin-container {
