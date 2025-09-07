@@ -1,4 +1,4 @@
-* {
+ * {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -362,6 +362,7 @@
      color: white;
  }
 
+ 
  /* Image Upload */
  .image-upload {
      border: 2px dashed #bdc3c7;
