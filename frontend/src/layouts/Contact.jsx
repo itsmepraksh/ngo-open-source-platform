@@ -2,8 +2,16 @@ import style from "../styles/Contact.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
  
+import {useForm} from "react-hook-form"
 
 const Contact = () => {
+
+
+    let {register , reset , handleSubmit , formState:{errors}} = useForm();
+
+    const submitHandler = (data)=>{
+        console.log(data)
+    }
     return (
         <section id="contact" className={`${style.section}`}>
             <div className={`${style.container}`}>
@@ -47,27 +55,27 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className={`${style.contactWrapper} ${style.b_part}`}>
-                        <form id="contactForm" className={style.contactForm}>
+                        <form id="contactForm" onSubmit={handleSubmit(submitHandler)} className={style.contactForm}>
                             <h3 className={style.formTitle}>Send us a Message</h3>
 
                             <div className={style.formGroup}>
                                 <label htmlFor="contactName">Name</label>
-                                <input type="text" id="contactName" name="name" required />
+                                <input {...register("name")} type="text" id="contactName" name="name" required />
                             </div>
 
                             <div className={style.formGroup}>
                                 <label htmlFor="contactEmailInput">Email</label>
-                                <input type="email" id="contactEmailInput" name="email" required />
+                                <input {...register("email")} type="email" id="contactEmailInput" name="email" required />
                             </div>
 
                             <div className={style.formGroup}>
                                 <label htmlFor="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required />
+                                <input {...register("subject")} type="text" id="subject" name="subject" required />
                             </div>
 
                             <div className={style.formGroup}>
                                 <label htmlFor="contactMessage">Message</label>
-                                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                                <textarea {...register("message")} id="contactMessage" name="message" rows="5" required></textarea>
                             </div>
 
                             <button type="submit" className={style.submitButton}>

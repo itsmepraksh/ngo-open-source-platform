@@ -7,7 +7,7 @@ const Admin_Support_Section = () => {
             <div id="shop" className="content-section" >
                 <div className="section-header">
                     <h3>Support Products Management</h3>
-                    <Link to="/support_section/form">
+                    <Link to="/admin/support/form">
                     <button className="btn btn-success" >
                        <i className="fas fa-plus"></i> Add New Product
                     </button>

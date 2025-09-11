@@ -39,7 +39,7 @@ const Admin_Events_Form = () => {
         <div className="modal-header">
           <h3 id="eventModalTitle">Add New Event</h3>
           <button >
-            <Link to={"/admin/events_section"}>&times;</Link>
+            <Link to={"/admin/events"}>&times;</Link>
           </button>
  
         </div>

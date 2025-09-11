@@ -23,6 +23,9 @@ import Admin_Order_Section from "../layouts/Admin_Order_Section";
 import Admin_Contact_Section from "../layouts/Admin_Contact_Section";
 import Admin_Volunteer_Section from "../layouts/Admin_Volunteer_Section";
 import Admin_Donation_Section from "../layouts/Admin_Donation_Section";
+import Admin_Key_Initiatives_Form from "../components/Admin_Key_Initiatives_Form";
+import Admin_Events_Form from "../components/Admin_Events_Form";
+import Admin_Support_Form from "../components/Admin_Support_Form";
 
 const MainRouter = () => {
   return (
@@ -42,9 +45,16 @@ const MainRouter = () => {
         <Route path="general" element={<Admin_General_Setting />} />
         <Route path="about" element={<Admin_About_Section/>}/> 
         <Route path="home" element={<Admin_Home_Section />} />
-        <Route path="key_initiatives" element={<Admin_Key_Initiatives_Section />} />
+        
+        <Route path="key_initiatives" element={<Admin_Key_Initiatives_Section />}/>
+        <Route path="key_initiatives/form" element={<Admin_Key_Initiatives_Form/>}/>
+
         <Route path="events" element={<Admin_Events_Section />} />
+        <Route path="events/form" element={<Admin_Events_Form/>}/>
+
         <Route path="support" element={<Admin_Support_Section />} />
+        <Route path="support/form" element={<Admin_Support_Form/>} />
+
         <Route path="order" element={<Admin_Order_Section />} />
         <Route path="contact" element={<Admin_Contact_Section />} />
         <Route path="volunteer" element={<Admin_Volunteer_Section/>}/>
