@@ -38,7 +38,7 @@ const Admin_Support_Form = () => {
           <h3 id="productModalTitle">Add New Product</h3>
 
           <button>
-            <Link to={"/admin/support_section"}>&times;</Link>
+            <Link to={"/admin/support"}>&times;</Link>
           </button>
         </div>
         <form id="productForm" onSubmit={handleSubmit(submitHandler)}>

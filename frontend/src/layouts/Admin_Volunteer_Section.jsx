@@ -1,23 +1,24 @@
-import React from 'react';
-import '../styles/Admin_Volunteer.css';
+import { useEffect, useState } from 'react';
+import '../styles/Admin_Volunteer.css'; 
+import { renderData } from '../utils/firebaseHelper';
 
-const Admin_Volunteer_Section = () => {
-  // Single dummy volunteer application
-  const volunteer = {
-    name: "Riya Sharma",
-    email: "riya.sharma@example.com",
-    availability: "Weekends",
-    interest: "Teaching",
-    status: "approved"
-  };
+const Admin_Volunteer_Section = () => { 
 
-  // Function to return badge class based on status
+  const [volData, setVolData] = useState([])
+
+  useEffect(() => {
+    renderData(setVolData)
+  }, [])
+  
+  console.log(volData)
+  
   const getStatusClass = (status) => {
-    switch (status.toLowerCase()) {
+    console.log(status)
+    switch (status) {
       case "approved":
         return "status-badge approved";
-      case "rejected":
-        return "status-badge rejected";
+      // case "rejected":
+      //   return "status-badge rejected";
       default:
         return "status-badge pending";
     }
@@ -40,18 +41,26 @@ const Admin_Volunteer_Section = () => {
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>{volunteer.name}</td>
-                <td>{volunteer.email}</td>
-                <td>{volunteer.availability}</td>
-                <td>{volunteer.interest}</td>
+            <tbody> 
+
+
+              { 
+              
+              (volData.length !=0) ? volData.map((Dta)=>(
+                <tr id={Dta.id} key={Dta.id}>
+                <td>{Dta.vol_name}</td>
+                <td>{Dta.vol_email}</td>
+                <td>{Dta.vol_time}</td>
+                <td>{Dta.vol_interest}</td>
                 <td>
-                  <span className={getStatusClass(volunteer.status)}>
-                    {volunteer.status}
-                  </span>
+                  <button className={getStatusClass(Dta.vol_status)}>
+                    {Dta.vol_status ?"approved": "pending"}
+                  </button>
                 </td>
-              </tr>
+              </tr>)
+              ) : (<tr>
+                <td colSpan="5" className="text-center text-gray-500 p-6">No data found..</td>
+              </tr>)}
             </tbody>
           </table>
         </div>

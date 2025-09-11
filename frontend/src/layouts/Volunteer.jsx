@@ -1,7 +1,40 @@
+import { useForm } from "react-hook-form"
 import style from "../styles/Volunteer.module.css" 
+import { toast } from "react-toastify"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../config/firebase"
 
 
 const Volunteer = () => {
+
+
+    const {register , handleSubmit , reset , formState:{errors}} = useForm()
+
+    const submitHandler = async ({volName , volEmail , volInterest , volMessage , volPhoneNo, volTime})=>{
+        // console.log(data)
+
+        try {
+            
+            await addDoc(collection(db,"volunteer"),{
+                vol_name :volName,
+                vol_email : volEmail,
+                vol_interest : volInterest,
+                vol_message : volMessage,
+                vol_phone_no : volPhoneNo,
+                vol_time : volTime,
+                vol_status : false,
+                createdAt : serverTimestamp()
+            })
+
+            toast.success("Form submitted")
+            reset()
+
+        } catch (err) {
+            toast.error(err.message || "something got wrong..")
+            console.error("Form Error ",err)
+        }
+    }
+
   return (
     <section id="volunteer" className={`${style.volunteer_section}`}>
         <div className={`${style.container}`}>
@@ -9,26 +42,27 @@ const Volunteer = () => {
             {/*fade-in  */}
             <div className={`${style.volunteer_form}`}>
                 <h3 className={`${style.form_title}`}>Join Our Movement</h3>
-                <form id="volunteerForm">
+                <form onSubmit={handleSubmit(submitHandler)} id="volunteerForm">
+
                     <div className={`${style.volunteer_form}`}>
                         <div className={`${style.form_group}`}>
                             <label>Full Name</label>
-                            <input type="text" id="name" name="name" required/>
+                            <input {...register("volName")} type="text" id="name" name="volName" required/>
                         </div>
                         
                         <div className={`${style.form_group}`}>
                             <label>Email Address</label>
-                            <input type="email" id="email" name="email" required/>
+                            <input {...register("volEmail")} type="email" id="email" name="volEmail" required/>
                         </div>
                         
                         <div className={`${style.form_group}`}>
                             <label >Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required/>
+                            <input {...register("volPhoneNo")} type="tel" id="phone" name="volPhoneNo" required/>
                         </div>
                         
                         <div className={`${style.form_group}`}>
                             <label >Area of Interest</label>
-                            <select id="interest" name="interest" required>
+                            <select {...register("volInterest")} defaultValue="" id="interest" name="volInterest" required>
                                 <option value="">Select an area</option>
                                 <option value="food-distribution">Food Distribution</option>
                                 <option value="environmental">Environmental Initiatives</option>
@@ -40,7 +74,7 @@ const Volunteer = () => {
                         
                         <div className={`${style.form_group}`}>
                             <label >Availability</label>
-                            <select id="availability" name="availability" required>
+                            <select {...register("volTime")} id="availability" name="volTime" required>
                                 <option value="">Select availability</option>
                                 <option value="weekends">Weekends Only</option>
                                 <option value="weekdays">Weekdays</option>
@@ -51,7 +85,7 @@ const Volunteer = () => {
                         
                         <div className={`${style.form_group_full}`}>
                             <label >Tell us about yourself</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Share your motivation, skills, or any questions you have..."></textarea>
+                            <textarea {...register("volMessage")} id="message" name="volMessage" rows="4" placeholder="Share your motivation, skills, or any questions you have..."></textarea>
                         </div>
                     </div>
                     

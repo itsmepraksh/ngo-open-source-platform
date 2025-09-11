@@ -7,7 +7,7 @@ const Admin_Events_Section = () => {
       <div className="section-header">
         <h3>Events & Activities Management</h3>
  
-        <Link to="/events_section/form">
+        <Link to="/admin/events/form">
  
           <button className="btn btn-success">
             <i className="fas fa-plus"></i> Add New Event
