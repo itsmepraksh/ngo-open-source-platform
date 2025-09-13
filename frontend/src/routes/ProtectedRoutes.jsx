@@ -1,8 +1,10 @@
+import { useContext } from "react";
 
 
 
 const ProtectedRoutes = (props) => {
 
+  const {currentUser} = useContext()
     
 
   return props.children;

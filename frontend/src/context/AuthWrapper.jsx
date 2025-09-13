@@ -1,71 +1,72 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { createContext, useState } from "react" 
+import {onAuthStateChanged, signInWithEmailAndPassword, signOut} from "firebase/auth"
+import {auth, db} from "../config/firebase"
+import { doc, getDoc } from "firebase/firestore"
+import { toast } from "react-toastify"
 
 export const authContext = createContext()
 
 const AuthWrapper = (props) => {
 
-  const [user, setUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [curuser, setCurUser] = useState(null); 
   const [loading, setLoading] = useState(true);
 
 
-  useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, async (u)=>{
 
-    if(u){
-
-      try {
-       const userDoc = await getDoc(doc,(db,"users",u.uid));
-
-       const adminFlag = userDoc.exists() ? userDoc.data().isAdmin === true : false;
-        setUser(u)
-        setIsAdmin(adminFlag);
-
-      } catch{
-        setUser(u)
-        isAdmin(false);
-      }
-
-    }else{
-      setUser(null);
-      setIsAdmin(false)
+  const unsubscribe = onAuthStateChanged(auth, async (user)=>{
+    if(!user) {
+      setCurUser(user);
+      setLoading(false)
+      return;
     }
-    setLoading(false)
+
+    // try {
+    //   const adminDta = await getDoc(doc(db,"admin_data",user.uid))
+    //   const data = adminDta.exists() ? adminDta.data()  : null;
+      
+      
+    // } catch (err) {
+    //   await signOut(user)
+    //   setCurUser(user)
+    //   console.error(err)
+    //   toast.err("unauthorized access")
+    // }
   });
 
-  return ()=> unsubscribe();
-  }, [])
+  const loginFnc =  async (email,password)=>{
 
-  const login = async (email , password )=>{
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth,email,password);
-      const u = userCredential.user;
+    console.log(email,password)
 
-      const userDoc = await getDoc(doc,db ,"users",u.uid);
-      const adminFlag = userDoc.exists() ? userDoc.isAdmin === true : false;
-      setUser(u);
-      setIsAdmin(adminFlag);
+    const {user} = await signInWithEmailAndPassword(auth , email , password)
+    console.log(user)
 
-      return {ok:true , isAdmin:adminFlag};
-    } catch (err) {
-      return {ok:false , error : err.message}
+    const checkDbExits = doc(db,"admin_data",user.uid);
+    const checkDocExits = await getDoc(checkDbExits);
+
+    if(!checkDocExits.exists()){
+      await signOut(auth);
+      throw new Error("No user data found!")
     }
+
+    const adminDta = checkDocExits.data();
+    const role = adminDta.role;
+
+    if(role !== "admin"){
+      await signOut(auth);
+      throw new Error("unauthorized access")
+    }
+
+    return user;
+
   }
 
-  const logout = async ()=>{
-
+  const logoutFnc = async ()=>{
     await signOut(auth)
-    setUser(null);
-    setIsAdmin(false);
   }
-  
  
 
   return (
-    <authContext.Provider value={{user, loading, isAdmin, login, logout}}>
+    <authContext.Provider value={{loginFnc, logoutFnc}}>
       {props.children}
     </authContext.Provider>
   )

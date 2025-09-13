@@ -30,6 +30,9 @@ import Admin_Support_Form from "../components/Admin_Support_Form";
 const MainRouter = () => {
   return (
     <Routes>
+
+    <Route path="/login" element={<Login/>}/>
+
       <Route path="/" element={<WebsiteLayout />}>
         <Route index path="home" element={<Home />} />
         <Route path="about" element={<About />} />
@@ -41,6 +44,7 @@ const MainRouter = () => {
         <Route path="shop" element={<Shop />} />
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
+         
         <Route index path="dashboard" element={<Admin_Dashboard_Section />} />
         <Route path="general" element={<Admin_General_Setting />} />
         <Route path="about" element={<Admin_About_Section/>}/> 

@@ -9,7 +9,7 @@ import { authContext } from "../context/AuthWrapper";
 const Login = () => {
   // admin@123#
 
-  const {login} = useContext(authContext);
+  const {loginFnc} = useContext(authContext);
   const navigate = useNavigate()
 
   const {register , handleSubmit , reset , formState:{errors}} = useForm()
@@ -18,7 +18,8 @@ const Login = () => {
     console.log(data)
 
     try {
-      await login(data.email , data.password);
+      const user = await loginFnc(data.email , data.password);
+      console.log(user)
       navigate('/admin/dashboard');
     } catch (err) {
       toast.error("Invalid Creditials");
